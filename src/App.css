@@ -1,25 +1,149 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Inter", sans-serif;
+}
 .App {
+  margin-top: 30px;
   text-align: center;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
 }
-/* input {
-  min-width: 800px;
-} */
-
-/* .inputWrapper {
-  border: 1px solid black;
-  max-width: 1000px;
+h1 {
+  margin: 20px;
+}
+.todoWrapper {
+  max-width: 900px;
+}
+.inputWrapper {
+  text-align: center;
+  border: 0.5px solid #ccc;
   border-radius: 5px;
-  padding: 20px;
-} */
-li {
-  list-style-type: none;
+  box-sizing: border-box;
 }
-button {
+
+form::before {
+  position: relative;
+  content: "\f02d";
+  font: var(--fa-font-solid);
+  background-color: #0d98ba;
+  font-size: 20px;
+  padding: 13px;
+  color: white;
+  border-bottom-left-radius: 4px;
+  border-top-left-radius: 4px;
+  top: 0px;
+  left: 3px;
+}
+input {
+  margin-top: 30px;
+  width: 725px;
+  font-size: 20px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+.addBtn {
+  width: 790px;
   margin: 20px;
   cursor: pointer;
+  font-size: 20px;
+  padding: 10px;
+  background-color: #0d98ba;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  margin-bottom: 30px;
 }
-.trashcan::after {
+.todoListBtnWrapper {
+  margin-bottom: 50px;
+  display: flex;
+  justify-content: space-between;
+}
+.listBtn {
+  background-color: #0d98ba;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  width: 250px;
+  font-size: 20px;
+  padding: 10px 40px 10px 40px;
+}
+.testWrapper {
+  display: flex;
+  justify-content: space-between;
+  border: 0.5px solid #ccc;
+  border-radius: 5px;
+  /* margin: 20px; */
+  margin-bottom: 20px;
+  width: 800px;
+}
+/* .todoWrapper:nth-child(3) {
+  border-top-right-radius: 5px;
+  border-top-right-radius: 5px;
+} */
+
+p {
+  padding-top: 10px;
+  font-size: 20px;
+  font-weight: 400;
+  margin: 20px;
+  padding: 3px 10px 3px 10px;
+}
+/* li {
+  list-style-type: none;
+  font-size: 20px;
+  font-weight: 400;
+  display: flex;
+  justify-content: space-between;
+  border: 0.5px solid #ccc;
+  margin: 20px;
+  border-radius: 5px;
+  padding: 5px 10px 5px 10px;
+} */
+.checkbox {
+  width: 50px;
+  height: 20px;
+}
+input[type="checkbox"] {
+  accent-color: green;
+}
+
+button {
+  border: none;
+  cursor: pointer;
+  font-size: 20px;
+}
+.trashcanBtn {
+  background: transparent;
+  border: none;
+}
+
+.pen::after {
+  content: "\f304";
+  font: var(--fa-font-solid);
+  color: #ffd700;
+  margin-right: 10px;
+}
+
+.trashcanBtn::after {
   content: "\f1f8";
   font: var(--fa-font-solid);
-  font-size: 10px;
+  font-size: 20px;
+  color: #fd5c63;
+  margin-right: 30px;
+}
+.deleteBtnWrapper {
+  display: flex;
+  justify-content: space-between;
+}
+.deleteBtn {
+  margin: 30px 0px 30px 0px;
+  background-color: #fd5c63;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 40px 10px 40px;
+  width: 350px;
 }

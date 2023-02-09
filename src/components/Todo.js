@@ -20,9 +20,28 @@ export default class Todo extends Component {
     }
     return randomId;
   };
+  handleKeyPressed = (e) => {
+    if (e.key === "Enter") {
+      e.preventDefault();
+      this.setState({
+        data: [
+          ...this.state.data,
+          {
+            id: this.randomIdGenerator(),
+            text: this.state.textInput,
+            isDone: false,
+            showChecked: false,
+            showUnChecked: false,
+          },
+        ],
+        textInput: "",
+      });
+    }
+  };
 
   // function to handle input text
   handleChange = (e) => {
+    e.preventDefault();
     this.setState({ textInput: e.target.value });
   };
 
@@ -45,12 +64,11 @@ export default class Todo extends Component {
 
   // function for deleting item from list
   handleDelete = (e, id) => {
-    console.log(id);
     this.setState({
       data: [
         ...this.state.data?.filter((item) => {
           if (item.id !== id) {
-            return item;
+            return item.id;
           }
         }),
       ],
@@ -62,42 +80,66 @@ export default class Todo extends Component {
     });
   };
 
-  handleCheckbox = () => {
+  handleCheckbox = (e, id) => {
+    console.log(id);
     this.setState({
-      isDone: !this.state.data.isDone,
+      ...this.state.data?.map((item) => {
+        if (item.id !== id) {
+          // checkbox logic?
+        }
+      }),
     });
   };
-
+  toggleChange = () => {
+    this.setState({
+      isDone: !this.state.isDone,
+    });
+  };
   render() {
-    // console.log(this.state.data);
+    console.log(this.state.data);
     return (
       <div className="todoWrapper">
         <h1>TodoInput</h1>
         <div className="inputWrapper">
           <Input
+            className="input"
+            onKeyDown={this.handleKeyPressed}
+            value={this.state.textInput}
             type="text"
             placeholder="New Todo"
             onChange={this.handleChange}
           />
-          <Button text="Add new task" onClick={this.handleAdd} />
+          <Button
+            className="addBtn"
+            text="Add new task"
+            onClick={this.handleAdd}
+          />
         </div>
         <h1>TodoList</h1>
-        <Button text="All" />
-        <Button text="Done" />
-        <Button text="Todo" />
+        <div className="todoListBtnWrapper">
+          <Button className="listBtn" text="All" />
+          <Button className="listBtn" text="Done" />
+          <Button className="listBtn" text="Todo" />
+        </div>
+
         {this.state.data?.map((item, index) => {
           return (
             <TodoList
               key={index}
               data={item.text}
               onClick={(e) => this.handleDelete(e, item.id)}
-              onChange={() => this.handleCheckbox()}
+              onChange={(e) => this.toggleChange(e, item.id)}
             />
           );
         })}
-        <div>
-          <Button text="Delete done tasks" />
-          <Button text="Delete all tasks" onClick={this.deleteAll} />
+
+        <div className="deleteBtnWrapper">
+          <Button className="deleteBtn" text="Delete done tasks" />
+          <Button
+            className="deleteBtn"
+            text="Delete all tasks"
+            onClick={this.deleteAll}
+          />
         </div>
       </div>
     );

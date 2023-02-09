@@ -8,15 +8,14 @@ export default class TodoList extends Component {
   }
   render() {
     return (
-      <li>
-        {this.props.data}
-        <Checkbox />
-        <Button
-          className="trashcan"
-          text="trashcan"
-          onClick={this.props.onClick}
-        />
-      </li>
+      <div className="testWrapper">
+        <p>{this.props.data}</p>
+        <div>
+          <Checkbox className="checkbox" onChange={this.props.onChange} />
+          <Button className="pen" />
+          <Button className="trashcanBtn" onClick={this.props.onClick} />
+        </div>
+      </div>
     );
   }
 }
