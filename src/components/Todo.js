@@ -63,6 +63,7 @@ export default class Todo extends Component {
   };
 
   // function for deleting item from list
+
   handleDelete = (e, id) => {
     this.setState({
       data: [
@@ -74,6 +75,7 @@ export default class Todo extends Component {
       ],
     });
   };
+
   deleteAll = () => {
     this.setState({
       data: [],
@@ -84,19 +86,49 @@ export default class Todo extends Component {
     console.log(id);
     this.setState({
       ...this.state.data?.map((item) => {
-        if (item.id !== id) {
-          // checkbox logic?
+        if (item.id === id) {
+          item.isDone = !item.isDone;
         }
+        return item;
       }),
     });
   };
-  toggleChange = () => {
+
+  // one function to change all
+  // handleCheckbox = (e, id) => {
+  //   this.setState({
+  //     data: this.state.data.map((item) => {
+  //       if (item.id === id) {
+  //         item.isDone = !item.isDone;
+  //         item.showChecked = item.isDone;
+  //         item.showUnChecked = !item.isDone;
+  //       }
+  //       return item;
+  //     }),
+  //   });
+  // };
+
+  handleAll = () => {
+    console.log("stiso");
     this.setState({
-      isDone: !this.state.isDone,
+      showChecked: false,
+      showUnChecked: false,
     });
   };
+
+  handleDone = () => {
+    console.log("stiso");
+    this.setState({ showChecked: true, showUnChecked: false });
+  };
+
+  handleTodo = () => {
+    console.log("stiso");
+    this.setState({ showChecked: false, showUnChecked: true });
+  };
+
   render() {
     console.log(this.state.data);
+
     return (
       <div className="todoWrapper">
         <h1>TodoInput</h1>
@@ -117,21 +149,36 @@ export default class Todo extends Component {
         </div>
         <h1>TodoList</h1>
         <div className="todoListBtnWrapper">
-          <Button className="listBtn" text="All" />
-          <Button className="listBtn" text="Done" />
-          <Button className="listBtn" text="Todo" />
+          <Button className="listBtn" text="All" onClick={this.handleAll} />
+          <Button className="listBtn" text="Done" onClick={this.handleDone} />
+          <Button className="listBtn" text="Todo" onClick={this.handleTodo} />
         </div>
 
-        {this.state.data?.map((item, index) => {
-          return (
-            <TodoList
-              key={index}
-              data={item.text}
-              onClick={(e) => this.handleDelete(e, item.id)}
-              onChange={(e) => this.toggleChange(e, item.id)}
-            />
-          );
-        })}
+        {this.state.data
+          ?.filter((item) => {
+            if (item.showChecked && item.isDone) {
+              console.log("done");
+              return true;
+            } else if (item.showUnChecked && !item.isDone) {
+              console.log("not");
+              return true;
+            } else if (!item.showChecked && !item.showUnChecked) {
+              console.log("all");
+              return true;
+            }
+            return true;
+          })
+          .map((item, index) => {
+            return (
+              <TodoList
+                key={index}
+                data={item.text}
+                onClick={(e) => this.handleDelete(e, item.id)}
+                onChange={(e) => this.handleCheckbox(e, item.id)}
+                checked={item.isDone}
+              />
+            );
+          })}
 
         <div className="deleteBtnWrapper">
           <Button className="deleteBtn" text="Delete done tasks" />

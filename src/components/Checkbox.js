@@ -7,8 +7,7 @@ export default class Checkbox extends Component {
         className={this.props.className}
         type="checkbox"
         onChange={this.props.onChange}
-        // checked={true}
-      ></input>
+        checked={this.props.checked}></input>
     );
   }
 }

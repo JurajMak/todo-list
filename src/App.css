@@ -105,9 +105,12 @@ p {
 .checkbox {
   width: 50px;
   height: 20px;
+  border: #32de84;
+  color: #32de84;
+  background-color: white;
 }
 input[type="checkbox"] {
-  accent-color: green;
+  /* accent-color: #32de84; */
 }
 
 button {
