@@ -3,12 +3,20 @@
   padding: 0;
   font-family: "Inter", sans-serif;
 }
+/* body {
+  display: flex;
+  justify-content: center;
+} */
 .App {
-  margin-top: 30px;
+  /* margin-top: 30px; */
   text-align: center;
   box-sizing: border-box;
   display: flex;
   justify-content: center;
+  /* border: 0.5px solid #ccc;
+  border-radius: 5px;
+  max-width: 1100px;
+  width: 950px; */
 }
 h1 {
   margin: 20px;
@@ -27,7 +35,7 @@ form::before {
   position: relative;
   content: "\f02d";
   font: var(--fa-font-solid);
-  background-color: #0d98ba;
+  background-color: #20a3b7;
   font-size: 20px;
   padding: 13px;
   color: white;
@@ -36,7 +44,8 @@ form::before {
   top: 0px;
   left: 3px;
 }
-input {
+
+.input {
   margin-top: 30px;
   width: 725px;
   font-size: 20px;
@@ -44,25 +53,26 @@ input {
   border: 1px solid #ccc;
   border-radius: 5px;
 }
+
 .addBtn {
   width: 790px;
   margin: 20px;
   cursor: pointer;
   font-size: 20px;
   padding: 10px;
-  background-color: #0d98ba;
+  background-color: #20a3b7;
   color: white;
   border: none;
   border-radius: 5px;
   margin-bottom: 30px;
 }
-.todoListBtnWrapper {
+.TodoItemBtnWrapper {
   margin-bottom: 50px;
   display: flex;
   justify-content: space-between;
 }
 .listBtn {
-  background-color: #0d98ba;
+  background-color: #20a3b7;
   color: white;
   border: none;
   border-radius: 5px;
@@ -75,42 +85,42 @@ input {
   justify-content: space-between;
   border: 0.5px solid #ccc;
   border-radius: 5px;
-  /* margin: 20px; */
+
   margin-bottom: 20px;
-  width: 800px;
+  width: 830px;
 }
-/* .todoWrapper:nth-child(3) {
-  border-top-right-radius: 5px;
-  border-top-right-radius: 5px;
-} */
 
 p {
-  padding-top: 10px;
   font-size: 20px;
   font-weight: 400;
   margin: 20px;
-  padding: 3px 10px 3px 10px;
+  /* padding: 10px 5px 3px 5px; */
 }
 /* li {
+   ako ne valja paragraph list
   list-style-type: none;
   font-size: 20px;
   font-weight: 400;
-  display: flex;
-  justify-content: space-between;
-  border: 0.5px solid #ccc;
+  
   margin: 20px;
   border-radius: 5px;
   padding: 5px 10px 5px 10px;
 } */
 .checkbox {
+  margin-top: 22px;
   width: 50px;
   height: 20px;
   border: #32de84;
   color: #32de84;
   background-color: white;
 }
+.checkboxWrapper {
+  display: flex;
+  justify-content: space-between;
+}
+
 input[type="checkbox"] {
-  /* accent-color: #32de84; */
+  accent-color: #20a3b7;
 }
 
 button {
@@ -123,7 +133,12 @@ button {
   border: none;
 }
 
-.pen::after {
+.penBtn {
+  background: transparent;
+  border: none;
+}
+
+.penBtn::after {
   content: "\f304";
   font: var(--fa-font-solid);
   color: #ffd700;
@@ -134,7 +149,7 @@ button {
   content: "\f1f8";
   font: var(--fa-font-solid);
   font-size: 20px;
-  color: #fd5c63;
+  color: #db3345;
   margin-right: 30px;
 }
 .deleteBtnWrapper {
@@ -142,11 +157,24 @@ button {
   justify-content: space-between;
 }
 .deleteBtn {
-  margin: 30px 0px 30px 0px;
-  background-color: #fd5c63;
+  margin: 10px 0px 30px 0px;
+  background-color: #db3345;
   color: white;
   border: none;
   border-radius: 5px;
   padding: 10px 40px 10px 40px;
   width: 350px;
+}
+.inactive {
+  text-decoration: line-through;
+  color: #db3345;
+}
+.edit {
+  /* left: -120px;*/
+  width: 620px;
+  /* height: 20px; */
+  font-size: 20px;
+  padding: 20px;
+  /* border: none; */
+  outline: none;
 }
