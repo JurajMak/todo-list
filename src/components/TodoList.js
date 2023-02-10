@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import Input from "./Input";
 import Button from "./Button";
 import TodoItem from "./TodoItem";
-import { isEditable } from "@testing-library/user-event/dist/utils";
 export default class Todo extends Component {
   constructor(props) {
     super(props);
@@ -75,6 +74,8 @@ export default class Todo extends Component {
     });
   };
 
+  // editing selected items from list
+
   handleEdit = (e, id) => {
     console.log(id);
     this.setState({
@@ -100,12 +101,22 @@ export default class Todo extends Component {
       isEditable: "",
     });
   };
-
-  // this.setState({
-  //   data: [{ text: this.state.editInput }],
-  // });
-  // };
-
+  onKeyEditSave = (e, id) => {
+    if (e.key === "Enter") {
+      e.preventDefault();
+      this.setState({
+        data: [
+          ...this.state.data?.filter((item) => {
+            if (item.id === id) {
+              return (item.text = this.state.editInput);
+            }
+            return item;
+          }),
+        ],
+        isEditable: "",
+      });
+    }
+  };
   // deleting all items from list
 
   // deleting ALL checked/done items from list
@@ -215,6 +226,7 @@ export default class Todo extends Component {
                 value={this.state.textInput}
                 onEditSave={(e) => this.handleEditSave(e, item.id)}
                 editValue={this.state.editInput}
+                onKeyEditSave={(e) => this.onKeyEditSave(e, item.id)}
               />
             );
           })}
@@ -235,5 +247,3 @@ export default class Todo extends Component {
     );
   }
 }
-
-// checked={item.isDone}
