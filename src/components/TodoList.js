@@ -5,6 +5,7 @@ import TodoItem from "./TodoItem";
 export default class Todo extends Component {
   constructor(props) {
     super(props);
+
     this.state = {
       textInput: "",
       data: [],
@@ -14,6 +15,7 @@ export default class Todo extends Component {
       editInput: "",
     };
   }
+
   // adding input values to  list on pressed enter
 
   handleKeyPressed = (e) => {
@@ -117,6 +119,15 @@ export default class Todo extends Component {
       });
     }
   };
+
+  onKeyEditExit = (e) => {
+    if (e.keyCode === 27) {
+      e.preventDefault();
+      this.setState({
+        isEditable: "",
+      });
+    }
+  };
   // deleting all items from list
 
   // deleting ALL checked/done items from list
@@ -168,6 +179,7 @@ export default class Todo extends Component {
   };
 
   render() {
+    console.log("render A");
     return (
       <div className="todoWrapper">
         <h1>TodoInput</h1>
@@ -189,7 +201,7 @@ export default class Todo extends Component {
             onClick={this.handleAdd}
           />
         </div>
-        <h1>TodoItem</h1>
+        <h1>TodoList</h1>
         <div className="TodoItemBtnWrapper">
           <Button className="listBtn" text="All" onClick={this.handleAll} />
           <Button className="listBtn" text="Done" onClick={this.handleDone} />
@@ -227,6 +239,7 @@ export default class Todo extends Component {
                 onEditSave={(e) => this.handleEditSave(e, item.id)}
                 editValue={this.state.editInput}
                 onKeyEditSave={(e) => this.onKeyEditSave(e, item.id)}
+                onKeyEditExit={(e) => this.onKeyEditExit(e)}
               />
             );
           })}

@@ -15,6 +15,7 @@ export default class Input extends Component {
         placeholder={this.props.placeholder}
         checked={this.props.checked}
         maxLength={this.props.maxLength}
+        autoFocus={this.props.autoFocus}
       />
     );
   }
