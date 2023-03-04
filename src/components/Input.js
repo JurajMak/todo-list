@@ -1,22 +1,19 @@
-import React, { Component } from "react";
+import React from "react";
 
-export default class Input extends Component {
-  constructor(props) {
-    super(props);
-  }
-  render() {
-    return (
-      <input
-        onKeyDown={this.props.onKeyDown}
-        className={this.props.className}
-        value={this.props.value}
-        type={this.props.type}
-        onChange={this.props.onChange}
-        placeholder={this.props.placeholder}
-        checked={this.props.checked}
-        maxLength={this.props.maxLength}
-        autoFocus={this.props.autoFocus}
-      />
-    );
-  }
-}
+const Input = (props) => {
+  return (
+    <input
+      onKeyDown={props.onKeyDown}
+      className={props.className}
+      value={props.value}
+      type={props.type}
+      onChange={props.onChange}
+      placeholder={props.placeholder}
+      checked={props.checked}
+      maxLength={props.maxLength}
+      autoFocus={props.autoFocus}
+    />
+  );
+};
+
+export default Input;
