@@ -19,6 +19,7 @@ const TodoItem = (props) => {
               props.onKeyEditExit(e);
             }}
           />
+
           <Button className="editSaveBtn" onClick={props.onEditSave} />
           <Button className="editExitBtn" onClick={props.onEditExit} />
         </div>
@@ -32,6 +33,7 @@ const TodoItem = (props) => {
               checked={props.data.isDone}
               type="checkbox"
             />
+
             <Button className="penBtn" onClick={props.onEdit} />
             <Button className="trashcanBtn" onClick={props.onDelete} />
           </div>

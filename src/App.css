@@ -89,7 +89,8 @@ p {
 }
 
 .checkbox {
-  margin-top: 22px;
+  margin-top: auto;
+  margin-bottom: auto;
   width: 50px;
   height: 20px;
   border: #32de84;
@@ -99,6 +100,8 @@ p {
 .checkboxWrapper {
   display: flex;
   justify-content: space-between;
+  margin: 10px;
+  margin-left: auto;
 }
 
 input[type="checkbox"] {
@@ -131,7 +134,7 @@ button {
   content: "\f1f8";
   font: var(--fa-font-solid);
   color: #db3345;
-  margin-right: 30px;
+  /* margin-right: auto; */
 }
 .deleteBtnWrapper {
   display: flex;
@@ -177,4 +180,64 @@ button {
   font: var(--fa-font-solid);
   font-size: 30px;
   color: #db3345;
+}
+
+/* mnedia */
+
+@media (max-width: 768px) {
+  .todoWrapper {
+    max-width: 80%;
+  }
+
+  .input {
+    width: 60%;
+  }
+
+  .addBtn {
+    width: 80%;
+    font-size: 16px;
+  }
+  .TodoItemBtnWrapper {
+    margin-bottom: 50px;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .listBtn {
+    width: 20%;
+    font-size: 16px;
+    padding: 8px 10px;
+    margin: auto;
+  }
+
+  .listWrapper {
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  p {
+    overflow-wrap: break-word;
+    word-break: break-all;
+  }
+
+  .deleteBtn {
+    width: 40%;
+    font-size: 16px;
+    padding: 8px 20px;
+    margin: auto;
+  }
+
+  .edit {
+    width: 80%;
+    font-size: 16px;
+    padding: 10px;
+  }
+
+  .editSaveBtn::after {
+    font-size: 20px;
+  }
+
+  .editExitBtn::after {
+    font-size: 20px;
+  }
 }
