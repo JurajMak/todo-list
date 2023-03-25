@@ -62,14 +62,14 @@ const TodoList = () => {
   };
 
   const handleEditSave = (e, id) => {
-    setData([
+    setData(
       data?.filter((item) => {
         if (item.id === id) {
           return (item.text = editInput);
         }
         return item;
-      }),
-    ]);
+      })
+    );
     setEditable("");
   };
 
