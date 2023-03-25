@@ -200,12 +200,12 @@ const TodoList = () => {
       <div className="deleteBtnWrapper">
         <Button
           className="deleteBtn"
-          text="Delete done"
+          text="Delete done tasks"
           onClick={handleDeleteDone}
         />
         <Button
           className="deleteBtn"
-          text="Delete all"
+          text="Delete all tasks"
           onClick={handleDeleteAll}
         />
       </div>

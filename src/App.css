@@ -195,7 +195,7 @@ button {
 
   .addBtn {
     width: 80%;
-    font-size: 16px;
+    font-size: 12px;
   }
   .TodoItemBtnWrapper {
     margin-bottom: 50px;
@@ -205,8 +205,8 @@ button {
 
   .listBtn {
     width: 20%;
-    font-size: 16px;
-    padding: 8px 10px;
+    font-size: 10px;
+    padding: 10px;
     margin: auto;
   }
 
@@ -222,7 +222,7 @@ button {
 
   .deleteBtn {
     width: 40%;
-    font-size: 16px;
+    font-size: 10px;
     padding: 8px 20px;
     margin: auto;
   }
